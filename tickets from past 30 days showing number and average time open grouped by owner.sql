@@ -1,0 +1,12 @@
+SELECT USER.USER_NAME as OWNER, count(HD_TICKET.ID) as NUMBER_OF_TICKETS,
+TIME_FORMAT(SEC_TO_TIME(AVG(TIMESTAMPDIFF(SECOND, 
+                          TIME_OPENED, 
+                          TIME_CLOSED)
+           )),'%Hh %im') AS "Average Seconds"
+from HD_TICKET
+JOIN HD_STATUS on (HD_STATUS.ID = HD_TICKET.HD_STATUS_ID)
+LEFT JOIN USER on (USER.ID = HD_TICKET.OWNER_ID)
+where HD_STATUS.NAME='closed'
+and HD_TICKET.TIME_CLOSED > DATE_SUB(NOW(), INTERVAL 30 DAY)
+and HD_TICKET.HD_QUEUE_ID in (2) /*add queue numbers here*/
+GROUP BY OWNER
