@@ -1,5 +1,8 @@
+--Custom inventory rules contain the admin user groups on computer
+--Report shows the computers that begin with bos (Indicating Bosler Hall)
+--That do not have a specific group listed
 SELECT DISTINCT(MACHINE.NAME), MACHINE.OS_NAME, MACHINE.CS_MODEL, MACHINE.CS_MANUFACTURER, SMMP_CONNECTION.CLIENT_CONNECTED,
-CASE 
+CASE
     WHEN MACHINE.OS_NAME like 'Mac%' THEN MACADMINS.STR_FIELD_VALUE
     WHEN MACHINE.OS_NAME like '%Win%' THEN REPLACE(SUBSTRING_INDEX(SUBSTRING_INDEX(WINADMINS.STR_FIELD_VALUE, "-------------------------------------------------------------------------------<br/>", -1), "<br/>The command completed successfully.", 1), "<br/>", ",")
 END AS ADMINS
