@@ -1,9 +1,14 @@
+--Report of both Dell and Apple hardware
+--Includes column for Purchase Date (for Apple based on custom inventory rule)
+--Includes column for replacement date based on chassis type
+--Limited to specific label 
+--Good example of the CASE function
 SELECT DISTINCT(MACHINE.NAME), MACHINE.OS_NAME, MACHINE.CS_MANUFACTURER, MACHINE.CS_MODEL, MACHINE.CHASSIS_TYPE,
-CASE 
+CASE
     WHEN MACHINE.CS_MANUFACTURER like 'Apple%' THEN STR_TO_DATE(substring_index(substring_index(STR_FIELD_VALUE, '<br/>', 2), ': ', -1), '%m/%d/%Y')
     WHEN MACHINE.CS_MANUFACTURER like 'Dell%' THEN DA.SHIP_DATE
 END AS PURCHASE_DATE,
-YEAR(CASE 
+YEAR(CASE
     WHEN MACHINE.CHASSIS_TYPE = "desktop" and MACHINE.CS_MANUFACTURER like 'Apple%' THEN DATE_ADD(STR_TO_DATE(substring_index(substring_index(STR_FIELD_VALUE, '<br/>', 2), ': ', -1), '%m/%d/%Y'), INTERVAL 4 YEAR)
     WHEN MACHINE.CHASSIS_TYPE = "laptop" and MACHINE.CS_MANUFACTURER like 'Apple%' THEN DATE_ADD(STR_TO_DATE(substring_index(substring_index(STR_FIELD_VALUE, '<br/>', 2), ': ', -1), '%m/%d/%Y'), INTERVAL 3 YEAR)
     WHEN MACHINE.CHASSIS_TYPE = "desktop" and MACHINE.CS_MANUFACTURER like 'Dell%' THEN DATE_ADD(DA.SHIP_DATE, INTERVAL 4 YEAR)

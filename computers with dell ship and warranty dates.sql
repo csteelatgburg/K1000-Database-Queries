@@ -1,7 +1,10 @@
-SELECT DISTINCT(MACHINE.NAME), 
-MACHINE.OS_NAME, 
-MACHINE.CS_MODEL, 
-MACHINE.CS_MANUFACTURER, 
+--Pulls data from Dell asset tables
+--Uses maximum warranty end date as some machines have multiple warranties
+ 
+SELECT DISTINCT(MACHINE.NAME),
+MACHINE.OS_NAME,
+MACHINE.CS_MODEL,
+MACHINE.CS_MANUFACTURER,
 DA.SHIP_DATE AS "Ship Date",
 MAX(DW.END_DATE) AS "Warranty End Date",
 DW.SERVICE_LEVEL_DESCRIPTION as "Service Level"

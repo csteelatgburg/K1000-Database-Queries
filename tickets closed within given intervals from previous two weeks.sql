@@ -1,4 +1,6 @@
-SELECT P.NAME, 
+--Request from ITNinja site
+--Breaks  down tickets into how long it took them to be closed 
+SELECT P.NAME,
 COUNT(T.ID) AS "Total Opened",
 (SELECT COUNT(ID)
 FROM ORG1.HD_TICKET
@@ -30,4 +32,3 @@ JOIN HD_PRIORITY P on P.ID = T.HD_PRIORITY_ID
 WHERE P.HD_QUEUE_ID = 2
 AND DATE(CREATED) > DATE_SUB(NOW(), INTERVAL 2 WEEK)
 GROUP BY P.ID
-

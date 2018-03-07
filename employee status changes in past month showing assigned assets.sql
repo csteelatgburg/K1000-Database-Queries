@@ -1,8 +1,10 @@
-SELECT USER.FULL_NAME as "Employee", OH.VALUE2 as "Description",  GROUP_CONCAT(ASSET.NAME) as "Assets", 
+--Uses changes in employee description to find changes in status from active to inactive
+--lists assets that were assigned to those users 
+SELECT USER.FULL_NAME as "Employee", OH.VALUE2 as "Description",  GROUP_CONCAT(ASSET.NAME) as "Assets",
 GROUP_CONCAT(CASE
 	WHEN ASSET.ASSET_TYPE_ID = 5 THEN M.NAME
     WHEN ASSET.ASSET_TYPE_ID = 8 THEN concat(PRINTER.FIELD_19, " ", PRINTER.FIELD_20)
-END) as "Devices", 
+END) as "Devices",
 GROUP_CONCAT(DISTINCT(LOCATION_DATA.FIELD_40)) as "Liaison"
 FROM ORG1.OBJECT_HISTORY OH
 LEFT JOIN ASSET on ASSET.OWNER_ID = OH.OBJECT_ID

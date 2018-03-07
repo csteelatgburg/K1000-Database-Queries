@@ -1,7 +1,8 @@
+--Custom inventory rule contains Stata license information
 SELECT M.NAME, GROUP_CONCAT(SOFTWARE.DISPLAY_NAME),
-case 
+case
 	when STR_FIELD_VALUE like "%zrdy%" THEN "IC Standalone"
-    when STR_FIELD_VALUE like "%5xi1%" THEN "SE Standalone" 
+    when STR_FIELD_VALUE like "%5xi1%" THEN "SE Standalone"
     when STR_FIELD_VALUE like "%0tf$%" THEN "IC Lab"
 END AS "License Type",
 STR_FIELD_VALUE as "License File"

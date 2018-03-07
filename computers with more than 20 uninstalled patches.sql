@@ -1,3 +1,5 @@
+--Report to identify computers behind on patching
+--Developed to create a smart label to label said machines 
 SELECT MACHINE.NAME, MACHINE.ID, COUNT(PMS.PATCHUID) as UNPATCHED
 FROM ORG1.PATCHLINK_MACHINE_STATUS PMS
 JOIN KBSYS.PATCHLINK_PATCH PP on PP.UID = PMS.PATCHUID
