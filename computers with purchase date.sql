@@ -1,6 +1,6 @@
---Report of both Dell and Apple hardware
---Includes column for Purchase Date (for Apple based on custom inventory rule)
---Good example of the CASE function
+-- Report of both Dell and Apple hardware
+-- Includes column for Purchase Date (for Apple based on custom inventory rule)
+-- Good example of the CASE function
 SELECT DISTINCT(MACHINE.NAME), MACHINE.OS_NAME, MACHINE.CS_MODEL, MACHINE.CS_MANUFACTURER,
 CASE
     WHEN MACHINE.CS_MANUFACTURER like 'Apple%' THEN MACHINE_CUSTOM_INVENTORY.DATE_FIELD_VALUE

@@ -1,4 +1,4 @@
---Example report to find the version of a specific software title on a group of computers 
+-- Example report to find the version of a specific software title on a group of computers 
 select CONCAT(DISPLAY_NAME, " (", DISPLAY_VERSION ,")") as Software_Title,
 MACHINE.NAME as Computer_Name,
 SYSTEM_DESCRIPTION,

@@ -1,5 +1,5 @@
---We used a script to change the password for our local admin users on macOS clients
---Report found machines where the script failed
+-- We used a script to change the password for our local admin users on macOS clients
+-- Report found machines where the script failed
 SELECT MACHINE.NAME, max(KBOT_LOG.START_TIME), KBOT_LOG.STATUS, CLIENT_CONNECTED
 FROM ORG1.KBOT_LOG
 JOIN MACHINE on MACHINE.ID = KBOT_LOG.MACHINE_ID

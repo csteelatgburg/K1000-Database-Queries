@@ -1,5 +1,5 @@
---Request from ITNinja site
---Breaks  down tickets into how long it took them to be closed 
+-- Request from ITNinja site
+-- Breaks  down tickets into how long it took them to be closed 
 SELECT P.NAME,
 COUNT(T.ID) AS "Total Opened",
 (SELECT COUNT(ID)

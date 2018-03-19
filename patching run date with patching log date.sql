@@ -1,5 +1,5 @@
---Tracking down an issue where the appliance reported patching ran but the log file was not updated
---Custom inventory rule contained date when the log file was updated
+-- Tracking down an issue where the appliance reported patching ran but the log file was not updated
+-- Custom inventory rule contained date when the log file was updated
 SELECT M.NAME AS Machine, DESCRIPTION AS Schedule, P.LAST_RUN AS 'Schedule Last Run',
 MCI.DATE_FIELD_VALUE AS "Patch Log Date"
 , K.PHASE AS Phase

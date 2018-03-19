@@ -1,5 +1,5 @@
---Out naming convention uses the primary user's name as the computer name
---Report finds computers that have a name that matches a username but is not assigned to that user 
+-- Out naming convention uses the primary user's name as the computer name
+-- Report finds computers that have a name that matches a username but is not assigned to that user 
 SELECT M.NAME, M.OS_NAME, OWNER.USER_NAME, OWNER.FULL_NAME,
 substring_index(M.NAME, "-", 1) as MBASENAME,
 (SELECT COUNT(ID) FROM USER WHERE USER.USER_NAME = substring_index(M.NAME, "-", 1)) as USERCOMPUTERNAME,

@@ -1,8 +1,8 @@
---Report of both Dell and Apple hardware
---Includes column for Purchase Date (for Apple based on custom inventory rule)
---Includes column for replacement date based on chassis type
---Limited to specific label 
---Good example of the CASE function
+-- Report of both Dell and Apple hardware
+-- Includes column for Purchase Date (for Apple based on custom inventory rule)
+-- Includes column for replacement date based on chassis type
+-- Limited to specific label 
+-- Good example of the CASE function
 SELECT DISTINCT(MACHINE.NAME), MACHINE.OS_NAME, MACHINE.CS_MANUFACTURER, MACHINE.CS_MODEL, MACHINE.CHASSIS_TYPE,
 CASE
     WHEN MACHINE.CS_MANUFACTURER like 'Apple%' THEN STR_TO_DATE(substring_index(substring_index(STR_FIELD_VALUE, '<br/>', 2), ': ', -1), '%m/%d/%Y')

@@ -1,5 +1,5 @@
---When making the move to SSD drives we needed to know how many Dell computers
---had drives with more than 200GB used. 
+-- When making the move to SSD drives we needed to know how many Dell computers
+-- had drives with more than 200GB used. 
 SELECT M.ID, M.NAME, D.NAME as "Disk Name", D.DISK_USED,
 DA.SHIP_DATE AS PURCHASE_DATE,
 CASE

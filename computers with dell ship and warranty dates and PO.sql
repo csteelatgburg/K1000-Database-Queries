@@ -1,6 +1,6 @@
---Pulls data from Dell asset tables
---Includes custom field from computer asset containing the PO Number
---Uses maximum warranty end date as some machines have multiple warranties
+-- Pulls data from Dell asset tables
+-- Includes custom field from computer asset containing the PO Number
+-- Uses maximum warranty end date as some machines have multiple warranties
 SELECT DISTINCT(MACHINE.NAME),
 MACHINE.OS_NAME,
 MACHINE.CS_MODEL,

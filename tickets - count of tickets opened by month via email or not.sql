@@ -1,5 +1,5 @@
---Report on number of tickets opened per month
---Includes columns to indicate number opened via email and not (presumes opened via portal)
+-- Report on number of tickets opened per month
+-- Includes columns to indicate number opened via email and not (presumes opened via portal)
 SELECT concat(month(CREATED), "/", year(CREATED)) as "Month/Year",
 COUNT(CASE
 	WHEN HD_TICKET_CHANGE.VIA_EMAIL = "" THEN 1

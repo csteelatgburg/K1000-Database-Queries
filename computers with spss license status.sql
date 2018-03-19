@@ -1,4 +1,4 @@
---Custom inventory rule contains SPSS license information
+-- Custom inventory rule contains SPSS license information
 SELECT DISTINCT(MACHINE.NAME), MACHINE.OS_NAME, 
 CASE
     WHEN OS_ARCH = "x86" THEN L32.STR_FIELD_VALUE

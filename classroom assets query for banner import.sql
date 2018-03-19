@@ -1,5 +1,5 @@
---This query is specific to a custom asset type that tracks classroom assets
---It is designed to output in a format that can be imported into our Banner system
+-- This query is specific to a custom asset type that tracks classroom assets
+-- It is designed to output in a format that can be imported into our Banner system
 SELECT  ASSET.NAME,
 BUILDING.NAME as "Building",
 BUILDINGDATA.FIELD_152 as "Building Code",

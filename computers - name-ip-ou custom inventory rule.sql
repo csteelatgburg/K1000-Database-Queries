@@ -1,4 +1,4 @@
---Custom inventory field pulls the registry value for machine OU
+-- Custom inventory field pulls the registry value for machine OU
 SELECT MACHINE.NAME, MACHINE.IP, ADOU.STR_FIELD_VALUE as "OU"
 FROM ORG1.MACHINE
 JOIN MACHINE_CUSTOM_INVENTORY ADOU on ADOU.ID = MACHINE.ID and ADOU.SOFTWARE_ID = 34958

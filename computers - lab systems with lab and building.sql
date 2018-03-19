@@ -1,6 +1,6 @@
---We have a label hierarchy for lab systems of "Labs and Classrooms, Building, Lab"
---Report shows each computer that is assigned a label in that hierarchy
---Used in conjunction with other reports to identify lab machines and where they are 
+-- We have a label hierarchy for lab systems of "Labs and Classrooms, Building, Lab"
+-- Report shows each computer that is assigned a label in that hierarchy
+-- Used in conjunction with other reports to identify lab machines and where they are 
 SELECT M.NAME as COMPUTER, LAB.NAME as LAB, BUILDING.NAME as BUILDING
 FROM MACHINE M
 JOIN MACHINE_LABEL_JT ML_JT on ML_JT.MACHINE_ID = M.ID

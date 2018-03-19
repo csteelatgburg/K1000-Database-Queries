@@ -1,4 +1,4 @@
---This report is run on the first of the month and the users are asked to take a survey
+-- This report is run on the first of the month and the users are asked to take a survey
 SELECT
 DISTINCT(S.EMAIL) AS EMAIL,
 S.FULL_NAME AS FULLNAME,

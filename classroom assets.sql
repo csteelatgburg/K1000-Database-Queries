@@ -1,4 +1,4 @@
---Report of custom asset used for tracking classrooms
+-- Report of custom asset used for tracking classrooms
 SELECT  ASSET.NAME,
 L0.NAME as "Building",
 AD.FIELD_46 as 'Room Number',

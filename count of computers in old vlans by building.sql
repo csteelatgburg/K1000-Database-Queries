@@ -1,6 +1,6 @@
---Good example of the CASE and SUM functions
---Count of computers based on their VLAN using INET_ATON function
---Computers grouped by their location label 
+-- Good example of the CASE and SUM functions
+-- Count of computers based on their VLAN using INET_ATON function
+-- Computers grouped by their location label 
 SELECT
 LABEL.NAME as LOCATION, COUNT(M.ID) AS Total,
 SUM(CASE WHEN INET_ATON(M.IP) between INET_ATON("172.16.16.1") and INET_ATON("172.16.23.255") then 1 else 0 end) as PubLab,

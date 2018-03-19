@@ -1,6 +1,6 @@
---PO information is stored in the computer asset
---This report will find computers that don't have PO information but were ordered with a computer that does have PO data
---Used to track down equipment that was not entered into KACE properly and need to be checked
+-- PO information is stored in the computer asset
+-- This report will find computers that don't have PO information but were ordered with a computer that does have PO data
+-- Used to track down equipment that was not entered into KACE properly and need to be checked
 SELECT M.ID, M.NAME, A.ID, A.NAME as "Serial Number", AD.ID, AD.FIELD_32 as PONumber, AD.FIELD_10013 as POCreated,
 DA.ORDER_NUMBER,
 (SELECT SERVICE_TAG FROM DELL_ASSET

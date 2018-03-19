@@ -1,6 +1,6 @@
---Custom report to generate a list of computers with their PO information
---Our computer asset includes custom fields for PO information and upgrade Cycle
---Based on purchase date and upgrade cycle, the upgrade date is calculated
+-- Custom report to generate a list of computers with their PO information
+-- Our computer asset includes custom fields for PO information and upgrade Cycle
+-- Based on purchase date and upgrade cycle, the upgrade date is calculated
 SELECT M.ID as UID, M.NAME, M.MAC, M.IP, M.OS_NAME,
 M.BIOS_SERIAL_NUMBER, CS_MANUFACTURER, CS_MODEL, RAM_TOTAL,
 LAST_USER, USER_FULLNAME, MONITOR,

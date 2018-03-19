@@ -1,5 +1,5 @@
---Our location asset contains a field for the support person for that building
---This report shows computers and includes the location and the liaison
+-- Our location asset contains a field for the support person for that building
+-- This report shows computers and includes the location and the liaison
 SELECT MACHINE.NAME,
 LOCATION.NAME as "Building",
 LIAISON.FULL_NAME as "Liaison",

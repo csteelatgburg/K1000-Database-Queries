@@ -1,6 +1,6 @@
---Report of computers in a range of IP addresses
---Report includes the computer location based on a label and the Liaison for that location
---Good example of the INET_ATON function
+-- Report of computers in a range of IP addresses
+-- Report includes the computer location based on a label and the Liaison for that location
+-- Good example of the INET_ATON function
 SELECT M.NAME, M.MAC, M.IP, M.OS_NAME,
 ASSET_DATA_1.FIELD_40 AS LIASON,
 LABEL.NAME as LOCATION

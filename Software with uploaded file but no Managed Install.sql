@@ -1,4 +1,4 @@
---Used to identify software titles that can have their attached installer deleted
+-- Used to identify software titles that can have their attached installer deleted
 SELECT ID, DISPLAY_NAME, FILE_SIZE,
 ( SELECT COUNT(MI.ID) FROM MI WHERE MI.SOFTWARE_ID = SOFTWARE.ID) as MICOUNT
 FROM SOFTWARE

@@ -1,4 +1,4 @@
---Example report to determine how many clients were upgraded after release of an upgrade.
+-- Example report to determine how many clients were upgraded after release of an upgrade.
 SELECT * FROM ORG1.ASSET_HISTORY
 JOIN MACHINE on ASSET_HISTORY.MACHINE
 WHERE FIELD_NAME = "CLIENT_VERSION"

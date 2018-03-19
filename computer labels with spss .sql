@@ -1,6 +1,6 @@
---Sub query finds computers with SPSS installed that have a label in the "Labs and Classrooms" group
---Main query returns the list of labels for those computers
---Originally used to find classrooms where SPSS was installed for display on a webpage
+-- Sub query finds computers with SPSS installed that have a label in the "Labs and Classrooms" group
+-- Main query returns the list of labels for those computers
+-- Originally used to find classrooms where SPSS was installed for display on a webpage
 SELECT DISTINCT(LABELS) FROM
 (SELECT MACHINE.NAME AS SYSTEM_NAME,
 USER_LOGGED,

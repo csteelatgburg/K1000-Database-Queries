@@ -1,5 +1,5 @@
---Identified machines with a label in the Labs and Classrooms label group with a particular software title installed
---Originally used to create web pages to help find classrooms that had software available
+-- Identified machines with a label in the Labs and Classrooms label group with a particular software title installed
+-- Originally used to create web pages to help find classrooms that had software available
 SELECT
 DISTINCT(LABEL.NAME)
 FROM ASSET

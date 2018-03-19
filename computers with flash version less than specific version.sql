@@ -1,4 +1,4 @@
---This query uses the INET_ATON function as a trick to find software versions
+-- This query uses the INET_ATON function as a trick to find software versions
 SELECT MACHINE.NAME, SOFTWARE.DISPLAY_NAME, SOFTWARE.DISPLAY_VERSION
 FROM MACHINE
 JOIN MACHINE_SOFTWARE_JT on MACHINE_SOFTWARE_JT.MACHINE_ID = MACHINE.ID

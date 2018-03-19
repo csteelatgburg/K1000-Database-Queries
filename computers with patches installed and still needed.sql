@@ -1,6 +1,6 @@
---Report of computers in our patch production schedule (patch-ORG1-3)
---Includes columns for patching phase, number of patches installed
---number of patches not installed and last patch scheduled run 
+-- Report of computers in our patch production schedule (patch-ORG1-3)
+-- Includes columns for patching phase, number of patches installed
+-- number of patches not installed and last patch scheduled run 
 SELECT M.ID as Machine_ID, M.NAME AS Machine, M.KUID
 , K.PHASE AS Phase, K.TYPE
 , PSMS.PATCHED, PSMS.NOTPATCHED

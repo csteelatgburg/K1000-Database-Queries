@@ -1,5 +1,5 @@
---We had an issue with computers not runnning the PaperCut Client
---This report identifies computers that are connected to the KBox on campus that don't have the client runnning
+-- We had an issue with computers not runnning the PaperCut Client
+-- This report identifies computers that are connected to the KBox on campus that don't have the client runnning
 
 select *, UNIX_TIMESTAMP(now()) - UNIX_TIMESTAMP(LAST_SYNC) as LAST_SYNC_TIME,
                        UNIX_TIMESTAMP(MACHINE.LAST_SYNC) as LAST_SYNC_SECONDS

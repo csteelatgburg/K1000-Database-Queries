@@ -1,5 +1,5 @@
---Uses changes in employee description to find changes in status from active to inactive
---lists assets that were assigned to those users 
+-- Uses changes in employee description to find changes in status from active to inactive
+-- lists assets that were assigned to those users 
 SELECT USER.FULL_NAME as "Employee", OH.VALUE2 as "Description",  GROUP_CONCAT(ASSET.NAME) as "Assets",
 GROUP_CONCAT(CASE
 	WHEN ASSET.ASSET_TYPE_ID = 5 THEN M.NAME

@@ -1,6 +1,6 @@
---We have labels to indicate the upgrade status of machines, e.g. bumpdown, deferred, etc.
---These labels are in a group
---Report shows computers with their upgrade status, if they don't have a label in the group then they are "In Cycle"
+-- We have labels to indicate the upgrade status of machines, e.g. bumpdown, deferred, etc.
+-- These labels are in a group
+-- Report shows computers with their upgrade status, if they don't have a label in the group then they are "In Cycle"
 SELECT MACHINE.ID as UID, MACHINE.NAME,
 CASE 
 	WHEN USLABELS.UPGRADESTATUS is not null THEN USLABELS.UPGRADESTATUS

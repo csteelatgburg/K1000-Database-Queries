@@ -1,4 +1,4 @@
---Example of a report that includes a column for two software titles
+-- Example of a report that includes a column for two software titles
 SELECT M.NAME, M.IP, M.LAST_SYNC,
 CASE
     WHEN GROUP_CONCAT(SOFTWARE.DISPLAY_NAME) like "%Adobe Acrobat XI Pro%" THEN "Yes"

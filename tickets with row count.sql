@@ -1,4 +1,4 @@
---Example of adding a column for the row number 
+-- Example of adding a column for the row number 
 SELECT ID, TITLE,
 @curRow := @curRow + 1 AS row_number
 FROM ORG1.HD_TICKET

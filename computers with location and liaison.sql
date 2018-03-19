@@ -1,4 +1,4 @@
---Report includes computers that have a label in the label group ID=439 (location)
+-- Report includes computers that have a label in the label group ID=439 (location)
 SELECT M.NAME, M.MAC, M.IP, M.OS_NAME,
 ASSET_DATA_1.FIELD_40 AS LIASON,
 LABEL.NAME as LOCATION

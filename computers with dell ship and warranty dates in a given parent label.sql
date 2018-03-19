@@ -1,6 +1,6 @@
---Pulls data from Dell asset tables
---Uses maximum warranty end date as some machines have multiple warranties
---Restricted to a specific label group 
+-- Pulls data from Dell asset tables
+-- Uses maximum warranty end date as some machines have multiple warranties
+-- Restricted to a specific label group 
 SELECT LABEL.NAME as "Lab", COUNT(MACHINE.NAME) as Count,
 MAX(DW.END_DATE) AS "Warranty End Date"
 FROM MACHINE

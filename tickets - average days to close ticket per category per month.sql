@@ -1,4 +1,4 @@
---Count of tickets closed per category per month. Includes average days to close each ticket.
+-- Count of tickets closed per category per month. Includes average days to close each ticket.
 
 SELECT concat(month(TIME_CLOSED), "/", year(TIME_CLOSED)) as "Month/Year", HD_CATEGORY.NAME as "Category",
 count(HD_TICKET.ID) as "Tickets Closed",

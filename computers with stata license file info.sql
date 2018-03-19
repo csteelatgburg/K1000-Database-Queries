@@ -1,4 +1,4 @@
---Custom inventory rule contains Stata license information
+-- Custom inventory rule contains Stata license information
 SELECT M.NAME, GROUP_CONCAT(SOFTWARE.DISPLAY_NAME),
 case
 	when STR_FIELD_VALUE like "%zrdy%" THEN "IC Standalone"

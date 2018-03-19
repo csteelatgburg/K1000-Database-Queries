@@ -1,6 +1,6 @@
---Pulls data from Dell asset tables
---Uses maximum warranty end date as some machines have multiple warranties
---Restricted to a specific label 
+-- Pulls data from Dell asset tables
+-- Uses maximum warranty end date as some machines have multiple warranties
+-- Restricted to a specific label 
 SELECT DISTINCT(MACHINE.NAME),
 MACHINE.OS_NAME,
 MACHINE.CS_MODEL,

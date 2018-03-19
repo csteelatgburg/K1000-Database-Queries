@@ -1,6 +1,6 @@
---A custom inventory rule held the size of the Users folder on the machine
---Report shows the amount of space used on the drive and how much was used by user accounts
---Initially created to estimate amount of storage needed for implementing a backup solution
+-- A custom inventory rule held the size of the Users folder on the machine
+-- Report shows the amount of space used on the drive and how much was used by user accounts
+-- Initially created to estimate amount of storage needed for implementing a backup solution
 SELECT M.ID, M.NAME, D.NAME,
 ROUND(DISK_SIZE, 0) as "Total Disk Available",
 ROUND(DISK_USED, 0) as "Total Disk Used",
