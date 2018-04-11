@@ -1,3 +1,5 @@
+-- Finds macOS versions installed in the past day 
+-- Report scheduled to run daily to inform tech that a new version is available
 SELECT SOFTWARE.CREATED, SOFTWARE.DISPLAY_NAME, SOFTWARE.DISPLAY_VERSION, COUNT(MACHINE.ID) AS INSTALLS,
 concat("https://kace.dickinson.edu/adminui/software.php?ID=",SOFTWARE.ID) AS LINK
 FROM ORG1.SOFTWARE

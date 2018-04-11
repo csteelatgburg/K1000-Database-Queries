@@ -1,7 +1,9 @@
+-- Count of tickets closed per category per month. Includes average days to close each ticket.
+
 SELECT concat(month(TIME_CLOSED), "/", year(TIME_CLOSED)) as "Month/Year", HD_CATEGORY.NAME as "Category",
 count(HD_TICKET.ID) as "Tickets Closed",
-AVG(TIMESTAMPDIFF(DAY, 
-                          TIME_OPENED, 
+AVG(TIMESTAMPDIFF(DAY,
+                          CREATED,
                           TIME_CLOSED)
            ) AS Average
 FROM ORG1.HD_TICKET
