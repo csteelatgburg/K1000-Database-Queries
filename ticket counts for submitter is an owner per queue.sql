@@ -1,4 +1,6 @@
-SELECT HD_TICKET.HD_QUEUE_ID, HD_QUEUE.NAME, 
+-- Report shows the number of tickets per queue that have submitters that can also be owners
+-- This might have been a request on ITNinja
+SELECT HD_TICKET.HD_QUEUE_ID, HD_QUEUE.NAME,
 sum(if(find_in_set(HD_TICKET.SUBMITTER_ID, (SELECT group_concat(USER_LABEL_JT.USER_ID) as "Owner IDs"
     FROM HD_QUEUE
     LEFT JOIN HD_QUEUE_OWNER_LABEL_JT on HD_QUEUE_OWNER_LABEL_JT.HD_QUEUE_ID = HD_QUEUE.ID

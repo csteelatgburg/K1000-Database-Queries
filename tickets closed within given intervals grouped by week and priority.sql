@@ -1,3 +1,5 @@
+-- Request from ITNinja site
+-- Breaks  down tickets into how long it took them to be closed
 SELECT YEAR(CREATED), WEEK(CREATED), P.NAME, 
 COUNT(T.ID) AS "Total Opened",
 (SELECT COUNT(ID)
@@ -30,4 +32,3 @@ JOIN HD_PRIORITY P on P.ID = T.HD_PRIORITY_ID
 WHERE P.HD_QUEUE_ID = 2
 
 GROUP BY YEAR(CREATED), WEEK(CREATED), P.ID
-

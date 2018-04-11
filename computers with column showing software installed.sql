@@ -1,5 +1,6 @@
-SELECT M.NAME, M.IP, M.LAST_SYNC, 
-CASE 
+-- Example of a report that includes a column for two software titles
+SELECT M.NAME, M.IP, M.LAST_SYNC,
+CASE
     WHEN GROUP_CONCAT(SOFTWARE.DISPLAY_NAME) like "%Adobe Acrobat XI Pro%" THEN "Yes"
     WHEN GROUP_CONCAT(SOFTWARE.DISPLAY_NAME) not like "%Adobe Acrobat XI Pro%" THEN "No"
 

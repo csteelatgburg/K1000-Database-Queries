@@ -1,3 +1,6 @@
+-- Instructor computer names end in -inst
+-- Report identifies instructor computers not in our two lab VLANs
+-- Also, one computer is named for the user wilkinst, ignore that one
 SELECT ID, NAME, MAC, IP, LAST_INVENTORY, OS_NAME, CS_MODEL 
 FROM ORG1.MACHINE
 WHERE NAME like "%inst"

@@ -1,7 +1,9 @@
+-- Bootcamp and Virtual machines consume a license
+-- If they aren't being used we remove them from inventory 
 SELECT NAME, MAC, LAST_INVENTORY, OS_NAME, CS_MANUFACTURER, CS_MODEL, BIOS_DESCRIPTION, BIOS_MANUFACTURER
-FROM ORG1.MACHINE 
-where not 
-    (CS_MANUFACTURER like "Dell%" 
+FROM ORG1.MACHINE
+where not
+    (CS_MANUFACTURER like "Dell%"
     or CS_MANUFACTURER like "TOSH%"
     or CS_MANUFACTURER like "Microsoft%"
     or CS_MANUFACTURER like "Acer%"

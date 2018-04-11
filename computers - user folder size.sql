@@ -1,13 +1,16 @@
-SELECT MACHINE.NAME, 
+-- A custom inventory rule held the size of the Users folder on the machine
+-- Report shows the amount of space used on the drive and how much was used by user accounts
+-- Initially created to estimate amount of storage needed for implementing a backup solution
+SELECT MACHINE.NAME,
 ROUND(DISK_SIZE, 0) as "Total Disk Available",
 ROUND(DISK_USED, 0) as "Total Disk Used",
-CASE 
+CASE
     WHEN MACHINE.OS_NAME like 'Mac%' and MACUS.STR_FIELD_VALUE like "%G%" THEN substring_index(MACUS.STR_FIELD_VALUE, "G", 1)
 	WHEN MACHINE.OS_NAME like 'Mac%' and MACUS.STR_FIELD_VALUE like "%M%" THEN round(substring_index(MACUS.STR_FIELD_VALUE, "M", 1)/1000,2)
     WHEN MACHINE.OS_NAME like 'Mic%' THEN round(substring_index(substring(WINUS.STR_FIELD_VALUE, LOCATE("Sum      : ", WINUS.STR_FIELD_VALUE)+ 11), "<br/>", 1)/1000000000, 0)
 END as `User Folder Size (G)`
 
- 
+
 FROM MACHINE
 LEFT JOIN MACHINE_DISKS D on MACHINE.ID = D.ID and (D.NAME like "Drive / %" or D.NAME like "Drive C:%")
 LEFT JOIN MACHINE_CUSTOM_INVENTORY WINUS on MACHINE.ID = WINUS.ID and WINUS.SOFTWARE_ID = 85480

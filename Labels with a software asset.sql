@@ -1,4 +1,6 @@
-SELECT 
+-- Identified machines with a label in the Labs and Classrooms label group with a particular software title installed
+-- Originally used to create web pages to help find classrooms that had software available
+SELECT
 DISTINCT(LABEL.NAME)
 FROM ASSET
 JOIN ASSET_DATA_6 on ASSET_DATA_6.ID = ASSET.ASSET_DATA_ID

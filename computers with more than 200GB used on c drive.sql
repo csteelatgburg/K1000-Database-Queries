@@ -1,6 +1,8 @@
+-- When making the move to SSD drives we needed to know how many Dell computers
+-- had drives with more than 200GB used. 
 SELECT M.ID, M.NAME, D.NAME as "Disk Name", D.DISK_USED,
 DA.SHIP_DATE AS PURCHASE_DATE,
-CASE 
+CASE
     WHEN M.CHASSIS_TYPE = "desktop" and M.CS_MANUFACTURER like 'Dell%' THEN DATE_ADD(DA.SHIP_DATE, INTERVAL 4 YEAR)
     WHEN M.CHASSIS_TYPE = "laptop" and M.CS_MANUFACTURER like 'Dell%' THEN DATE_ADD(DA.SHIP_DATE, INTERVAL 3 YEAR)
     ELSE "Unknown"
@@ -8,5 +10,5 @@ END AS REPLACEMENT_DATE
 FROM ORG1.MACHINE M
 JOIN MACHINE_DISKS D on M.ID = D.ID
 LEFT JOIN DELL_ASSET DA on M.BIOS_SERIAL_NUMBER = DA.SERVICE_TAG
-WHERE DISK_USED > 200 
+WHERE DISK_USED > 200
 AND D.NAME like "Drive C:%"
