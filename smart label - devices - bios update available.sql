@@ -1,0 +1,13 @@
+-- Query for a smart label on computers that have a BIOS update available
+-- Submitted as part of solution for https://www.itninja.com/question/leveraging-sql-info-to-script-bios-deployment
+
+SELECT MACHINE.NAME AS SYSTEM_NAME, SYSTEM_DESCRIPTION, MACHINE.IP, MACHINE.MAC, MACHINE.ID as TOPIC_ID 
+FROM MACHINE
+
+JOIN DELL_MACHINE_STATUS on DELL_MACHINE_STATUS.MACHINE_ID = MACHINE.ID
+JOIN KBSYS.DELL_PKG on DELL_PKG.PACKAGE_DID = DELL_MACHINE_STATUS.PACKAGE_DID
+WHERE DELL_PKG.COMPONENT_TYPE = "BIOS"
+AND APPLICABLE_UPDATE = "UPGRADE"
+
+
+
