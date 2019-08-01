@@ -1,6 +1,7 @@
--- Out naming convention uses the primary user's name as the computer name
+-- Our naming convention uses the primary user's name as the computer name
 -- Report finds computers that are named for someone other than the primary user
 -- Departmental and Lab computers are assigned to a generic user and they are excluded
+-- Computers with a dash have a suffix and only the first part is the user name
 SELECT M.NAME, M.OS_NAME, OWNER.USER_NAME, OWNER.FULL_NAME,
 substring_index(M.NAME, "-", 1) as MBASENAME,
 (SELECT COUNT(ID) FROM USER WHERE USER.USER_NAME = substring_index(M.NAME, "-", 1)) as USERCOMPUTERNAME,

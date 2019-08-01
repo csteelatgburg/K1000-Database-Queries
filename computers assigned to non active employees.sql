@@ -1,7 +1,8 @@
 -- Active employees have a description that includes EMP_ACTIVE or EMPLOYEE
 -- Report shows computers that are assigned to a user that is not an active employee
 
-SELECT M.NAME, M.OS_NAME, OWNER.USER_NAME as "UserName", OWNER.FULL_NAME as "Owner",
+SELECT M.NAME as 'Computer Name', M.OS_NAME, OWNER.FULL_NAME as "Owner", 
+OWNER.USER_NAME as "UserName", 
 OWNERDESC.FIELD_VALUE as "Owner Desciption",
 M.USER_FULLNAME as "Last User",
 M.LAST_INVENTORY as "Last Inventory"
