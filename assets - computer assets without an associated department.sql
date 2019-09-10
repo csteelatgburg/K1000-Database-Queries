@@ -3,7 +3,7 @@
 -- the computer asset type has a custom field for the department asset type
 -- Computers are assigned to users
 -- Users have a custom field for their department
--- See comments below for custom field IDs that need to be adjusted
+-- See comments below for custom field 
 
 SELECT ASSET.ID as 'ID', 
 ASSET.NAME as 'Asset Name', 
@@ -27,4 +27,5 @@ AND MACHINE.NAME is not null
 AND ASSET.ASSET_TYPE_ID = 5
 AND USER_DEPARTMENT.FIELD_VALUE != ''
 AND ASSET_DEPARTMENT.ID is not null
+
 
