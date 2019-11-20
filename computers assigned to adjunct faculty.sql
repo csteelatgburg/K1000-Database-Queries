@@ -1,9 +1,10 @@
--- Active employees have a description that includes EMP_ACTIVE or EMPLOYEE
--- Report shows computers that are assigned to a user that is not an active employee
+-- Active faculty have a description that includes EMP_ACTIVE_FACULTY
+-- Report shows computers that are assigned to a user that is an Adjunct Faculty Member
 
 SELECT M.NAME as 'Computer Name', M.OS_NAME, OWNER.FULL_NAME as "Owner", 
 OWNER.USER_NAME as "UserName", 
 OWNERDESC.FIELD_VALUE as "Owner Desciption",
+OWNERTITLE.FIELD_VALUE as "Owner Title",
 M.USER_FULLNAME as "Last User",
 M.LAST_INVENTORY as "Last Inventory"
 FROM MACHINE M
@@ -11,10 +12,10 @@ JOIN ASSET on ASSET.MAPPED_ID = M.ID
 JOIN USER OWNER on OWNER.ID = ASSET.OWNER_ID
 
 JOIN USER_FIELD_VALUE OWNERDESC on OWNERDESC.FIELD_ID = 3 AND OWNERDESC.USER_ID = OWNER.ID
+JOIN USER_FIELD_VALUE OWNERTITLE on OWNERTITLE.FIELD_ID = 1 AND OWNERTITLE.USER_ID = OWNER.ID
 
-WHERE (
-OWNERDESC.FIELD_VALUE not like "%EMP_ACTIVE%"
-and OWNERDESC.FIELD_VALUE != "EMPLOYEE")
+WHERE 
+OWNERDESC.FIELD_VALUE like "%EMP_ACTIVE_FACULTY%"
 and OWNER.USER_NAME not like '%computer'
-
+and OWNERTITLE.FIELD_VALUE like '%Adjunct%'
 ORDER BY M.NAME
