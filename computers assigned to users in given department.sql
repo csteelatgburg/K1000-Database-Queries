@@ -1,0 +1,21 @@
+-- Report shows computers that are assigned to users in the specified department
+
+SELECT M.NAME as 'Computer Name', M.OS_NAME, OWNER.FULL_NAME as "Owner", 
+OWNER.USER_NAME as "UserName", 
+OWNERDESC.FIELD_VALUE as "Owner Desciption",
+OWNERTITLE.FIELD_VALUE as "Owner Title",
+M.USER_FULLNAME as "Last User",
+M.LAST_INVENTORY as "Last Inventory"
+FROM MACHINE M
+JOIN ASSET on ASSET.MAPPED_ID = M.ID
+JOIN USER OWNER on OWNER.ID = ASSET.OWNER_ID
+
+-- These joins may need to be adjusted for your environment
+-- The USER_FIELD_DEFINITION table contains the Field ID values
+JOIN USER_FIELD_VALUE OWNERDESC on OWNERDESC.FIELD_ID = 3 AND OWNERDESC.USER_ID = OWNER.ID
+JOIN USER_FIELD_VALUE OWNERTITLE on OWNERTITLE.FIELD_ID = 1 AND OWNERTITLE.USER_ID = OWNER.ID
+JOIN USER_FIELD_VALUE OWNERDEPT on OWNERDEPT.FIELD_ID = 4 AND OWNERDEPT.USER_ID = OWNER.ID
+
+WHERE 
+OWNERDEPT.FIELD_VALUE = "User Services"
+ORDER BY M.NAME
