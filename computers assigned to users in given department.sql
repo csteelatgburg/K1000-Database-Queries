@@ -7,7 +7,7 @@ OWNERTITLE.FIELD_VALUE as "Owner Title",
 M.USER_FULLNAME as "Last User",
 M.LAST_INVENTORY as "Last Inventory"
 FROM MACHINE M
-JOIN ASSET on ASSET.MAPPED_ID = M.ID
+JOIN ASSET on ASSET.MAPPED_ID = M.ID and ASSET.ASSET_TYPE_ID = 5
 JOIN USER OWNER on OWNER.ID = ASSET.OWNER_ID
 
 -- These joins may need to be adjusted for your environment
