@@ -1,0 +1,39 @@
+SELECT
+(case when
+TIME_CLOSED
+INTERVAL 1 HOUR) then '0-1 hour'
+when
+TIME_CLOSED
+24 HOUR) then '1-24 hours'
+when
+TIME_CLOSED>DATE_ADD(IF(TIME_OPENED='0',TIME_CLOSED,TIME_OPENED),INTERVAL
+24 HOUR) then '>24 hours'
+else 'error' end ) as CLOSE_GROUP,
+count(HD_TICKET.ID) as NUMBER_OF_TICKETS,
+CONCAT((sum(TIME_TO_SEC(TIMEDIFF(TIME_CLOSED,IF(TIME_OPENED='0',TIME_CLOSED,TIME_OPENED))))/count(HD_TICKET.id)
+div 86400),'d ',
+TIME_FORMAT(SEC_TO_TIME(sum(TIME_TO_SEC(TIMEDIFF(TIME_CLOSED,IF(TIME_OPENED='0',TIME_CLOSED,TIME_OPENED))))/count(HD_TICKET.id) mod 86400 ), '%kh %im %ss')) as AVG_TIME_TO_CLOSE from HD_TICKET,
+HD_STATUS
+where
+HD_TICKET.HD_STATUS_ID=HD_STATUS.ID
+and HD_STATUS.NAME='closed'
+and TIME_CLOSED<>0
+and TIME_CLOSED>'2015-01-01' /*change the start date here*/
+and TIME_CLOSED<'2018-05-30' /*change the end date here*/
+and HD_TICKET.HD_QUEUE_ID in (1) /*add queue numbers here*/
+group by CLOSE_GROUP
+UNION
+select 'all' as CLOSE_GROUP,count(HD_TICKET.ID) as NUMBER_OF_TICKETS,
+CONCAT((sum(TIME_TO_SEC(TIMEDIFF(TIME_CLOSED,IF(TIME_OPENED='0',TIME_CLOSED,TIME_OPENED))))/count(HD_TICKET.id)
+div 86400),'d ',
+TIME_FORMAT(SEC_TO_TIME(sum(TIME_TO_SEC(TIMEDIFF(TIME_CLOSED,IF(TIME_OPENED='0',TIME_CLOSED,TIME_OPENED))))/count(HD_TICKET.id)
+mod 86400 ), '%kh %im %ss')) as AVG_TIME_TO_CLOSE from HD_TICKET
+,HD_STATUS
+where
+HD_TICKET.HD_STATUS_ID=HD_STATUS.ID
+and HD_STATUS.NAME='closed'
+and TIME_CLOSED<>0
+and TIME_CLOSED>'2015-01-01' /*change the start date here*/
+and TIME_CLOSED<'2018-05-30' /*change the end date here */
+and HD_TICKET.HD_QUEUE_ID in (1) /*add queue numbers here*/
+group by CLOSE_GROUP
